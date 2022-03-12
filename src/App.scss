@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
+* {
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+$dark-Element: hsl(209,
+23%,
+22%);
+$dark-Mode-Bg: hsl(207,
+26%,
+17%);
+$dark-Mode-Text: hsl(0,
+0%,
+100%);
+$light-Mode-Text: hsl(200,
+15%,
+8%);
+$light-Mode-Input: hsl(0,
+0%,
+52%);
+$light-Mode-Bg: hsl(0,
+0%,
+98%);
+$light-Element: hsl(0,
+0%,
+100%);
+$Home-Items:14px;
+$Detail-Page:16px;
+.nav {
+    button {
+        background-color: unset;
+    }
+}
+
+@mixin theme-switch($theme) {
+    @if $theme=="light" {
+        .light {
+            .nav {
+                background-color: $light-Element;
+                .title {
+                    color: $light-Mode-Text;
+                }
+                span {
+                    color: $light-Mode-Text;
+                }
+            }
+        }
+    }
+    @else {
+        .dark {
+            .nav {
+                background-color: $dark-Element;
+                .title {
+                    color: $dark-Mode-Text;
+                }
+                span {
+                    color: $dark-Mode-Text;
+                }
+            }
+        }
+    }
+}
+
+@include theme-switch(light);
+@include theme-switch(dark);
