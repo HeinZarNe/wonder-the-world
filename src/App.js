@@ -5,17 +5,36 @@ import axios from "axios";
 import { Provider } from "react-redux";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "./components/Navbar";
+import "bootstrap/dist/js/bootstrap.bundle";
+
+import { Outlet } from "react-router-dom";
 
 function App() {
   const [response, setResponse] = useState([]);
   const [theme, setTheme] = useState("day");
-  useEffect((_) => {
-    axios.get(`https://restcountries.com/v3.1/all`).then((res) => {
+  const [source, setSource] = useState([]);
+  useEffect(async (_) => {
+    await axios.get(`https://restcountries.com/v3.1/all`).then((res) => {
       setResponse(res.data);
+      setSource(res.data);
     });
-  });
-  const reducer = (state = response, action) => {
-    return state;
+  }, []);
+
+  const reducer = (state = [], action) => {
+    let { type, payload } = action;
+    if (type === "CHOOSE_REGION" && payload != "All Regions") {
+      state = response.filter((s) => s.region == payload);
+      return state;
+    } else if (type === "CHOOSE_REGION" && payload == "All Regions") {
+      return (state = response);
+    }
+    if (type === "SEARCH_REGION" && payload) {
+      return (state = response.filter((r) =>
+        r.name.common.toLowerCase().includes(payload.word.toLowerCase())
+      ));
+    }
+
+    return (state = response);
   };
   const store = createStore(reducer);
 
@@ -29,8 +48,9 @@ function App() {
 
   return (
     <Provider store={store}>
-      <div className={theme === "day" ? "App light" : "App dark"}>
-        <Navbar onChange={handleChange} theme={theme} />
+      <div className={theme === "day" ? "App light vh-100" : "App dark vh-100"}>
+        <Navbar onChange={handleChange} theme={theme} />{" "}
+        <Outlet context={[source, setSource]} />
       </div>
     </Provider>
   );

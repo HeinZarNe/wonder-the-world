@@ -1,65 +1,320 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
-* {
-    font-family: 'Nunito Sans', sans-serif;
-}
-
-$dark-Element: hsl(209,
-23%,
-22%);
-$dark-Mode-Bg: hsl(207,
-26%,
-17%);
-$dark-Mode-Text: hsl(0,
-0%,
-100%);
-$light-Mode-Text: hsl(200,
-15%,
-8%);
-$light-Mode-Input: hsl(0,
-0%,
-52%);
-$light-Mode-Bg: hsl(0,
-0%,
-98%);
-$light-Element: hsl(0,
-0%,
-100%);
-$Home-Items:14px;
-$Detail-Page:16px;
-.nav {
-    button {
-        background-color: unset;
-    }
-}
-
-@mixin theme-switch($theme) {
-    @if $theme=="light" {
-        .light {
+            @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
+            * {
+                font-family: 'Nunito Sans', sans-serif;
+            }
+            
+            $dark-Element: hsl(209,
+            23%,
+            22%);
+            $dark-Mode-Bg: hsl(207,
+            26%,
+            17%);
+            $dark-Mode-Text: hsl(0,
+            0%,
+            100%);
+            $light-Mode-Text: hsl(200,
+            15%,
+            8%);
+            $light-Mode-Input: hsl(0,
+            0%,
+            52%);
+            $light-Mode-Bg: hsl(0,
+            0%,
+            95%);
+            $light-Element: hsl(0,
+            0%,
+            100%);
+            $Home-Items:14px;
+            $Detail-Page:16px;
             .nav {
-                background-color: $light-Element;
-                .title {
-                    color: $light-Mode-Text;
-                }
-                span {
-                    color: $light-Mode-Text;
+                button {
+                    background-color: unset;
                 }
             }
-        }
-    }
-    @else {
-        .dark {
-            .nav {
-                background-color: $dark-Element;
-                .title {
-                    color: $dark-Mode-Text;
+            
+            @mixin theme-switch($theme) {
+                @if $theme=="light" {
+                    .light {
+                        background-color: $light-Mode-Bg;
+                        .nav {
+                            background-color: $light-Element;
+                            .title {
+                                color: $light-Mode-Text;
+                            }
+                            span {
+                                color: $light-Mode-Text;
+                            }
+                        }
+                        .input {
+                            .search-box {
+                                input {
+                                    background-color: $light-Element;
+                                    &::placeholder {
+                                        color: hsl(198, 15%, 13%);
+                                        font-size: $Home-Items
+                                    }
+                                    &:focus-visible {
+                                        outline: unset !important;
+                                    }
+                                    color: $light-Mode-Text;
+                                }
+                            }
+                            .dropdown {
+                                button {
+                                    background-color: $light-Element !important;
+                                    color: $light-Mode-Text;
+                                    &:hover {
+                                        background-color: hsl(0, 0%, 90%);
+                                    }
+                                }
+                                ul {
+                                    background-color: $light-Element;
+                                    li {
+                                        color: $light-Mode-Text;
+                                        &:hover {
+                                            background-color: hsl(0, 0%, 90%);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .cards {
+                            .no-card {
+                                color: $light-Mode-Text;
+                                background-color: $light-Mode-Bg;
+                            }
+                            .card {
+                                .card-body {
+                                    background-color: $light-Element;
+                                    p {
+                                        color: $light-Mode-Text;
+                                    }
+                                }
+                            }
+                        }
+                        .detail {
+                            .back-btn {
+                                background-color: $light-Element;
+                            }
+                            .tilte {
+                                color: $light-Mode-Text;
+                            }
+                            img {
+                                border: 12px solid $light-Element;
+                            }
+                            .borderl {
+                                color: $light-Mode-Text;
+                                .border-country {
+                                    background-color: $light-Element;
+                                }
+                            }
+                        }
+                    }
                 }
-                span {
-                    color: $dark-Mode-Text;
+                @else {
+                    .dark {
+                        background-color: $dark-Mode-Bg;
+                        .nav {
+                            background-color: $dark-Element;
+                            .title {
+                                color: $dark-Mode-Text;
+                            }
+                            span {
+                                color: $dark-Mode-Text;
+                            }
+                        }
+                        .input {
+                            .search-box {
+                                svg {
+                                    fill: $dark-Mode-Text;
+                                }
+                                input {
+                                    background-color: $dark-Element;
+                                    &::placeholder {
+                                        color: $dark-Mode-Text;
+                                        font-size: $Home-Items
+                                    }
+                                    &:focus-visible {
+                                        outline: unset !important;
+                                    }
+                                    color: $dark-Mode-Text;
+                                }
+                            }
+                            .dropdown {
+                                button {
+                                    background-color: $dark-Element !important;
+                                    color: $dark-Mode-Text;
+                                    &::after {
+                                        margin-left: 5px;
+                                    }
+                                    &:hover {
+                                        background-color: hsl(209, 23%, 28%) !important;
+                                        ;
+                                    }
+                                }
+                                ul {
+                                    li {
+                                        color: $dark-Mode-Text;
+                                        &:hover {
+                                            background-color: hsl(209, 23%, 17%);
+                                            ;
+                                        }
+                                    }
+                                    background-color: $dark-Element
+                                }
+                            }
+                        }
+                        .cards {
+                            .no-card {
+                                color: $dark-Mode-Text;
+                                background-color: $dark-Mode-Bg;
+                            }
+                            .card {
+                                .card-body {
+                                    background-color: $dark-Element;
+                                    color: $dark-Mode-Text;
+                                }
+                            }
+                        }
+                        .detail {
+                            img {
+                                border: 12px solid $dark-Element;
+                            }
+                            .back-btn {
+                                background-color: $dark-Element;
+                                color: $dark-Mode-Text;
+                            }
+                            .title {
+                                color: $dark-Mode-Text;
+                            }
+                            .datas {
+                                li {
+                                    color: $dark-Mode-Text !important
+                                }
+                            }
+                            .borderl {
+                                color: $dark-Mode-Text;
+                                .border-country {
+                                    background-color: $dark-Element;
+                                }
+                            }
+                        }
+                    }
                 }
             }
-        }
-    }
-}
-
-@include theme-switch(light);
-@include theme-switch(dark);
+            
+            @include theme-switch(light);
+            @include theme-switch(dark);
+            .App {
+                overflow-y: scroll;
+                .nav {
+                    top: 0;
+                    z-index: 99;
+                    @media (max-width: 460px) {
+                        padding: 13px 12px !important;
+                        .title {
+                            font-size: 16px !important;
+                        }
+                        span {
+                            font-size: 12px !important;
+                        }
+                    }
+                }
+                .input {
+                    @media (max-width: 660px) {
+                        padding: 0 12px !important;
+                    }
+                    .search-box {
+                        svg {
+                            top: 24px;
+                            left: 27px;
+                        }
+                    }
+                    .dropdown {
+                        width: 170px !important;
+                        button {
+                            font-size: $Home-Items;
+                            &::after {
+                                margin-left: 10px;
+                            }
+                        }
+                        ul {
+                            border: 0px;
+                            top: 5px;
+                            width: 100% !important;
+                            font-size: $Home-Items;
+                        }
+                    }
+                }
+                .cards {
+                    .no-card {
+                        left: 0;
+                    }
+                    @media (max-width: 660px) {
+                        padding: 0 12px !important;
+                    }
+                    .card {
+                        cursor: pointer;
+                        border: 0px !important;
+                        background-color: #0000;
+                        @media (max-width: 660px) {
+                            width: 100% !important;
+                        }
+                        img {
+                            height: 160.8px
+                        }
+                        .card-title {
+                            font-size: 20px;
+                        }
+                        p {
+                            font-size: $Home-Items;
+                        }
+                    }
+                }
+                .detail {
+                    @media (max-width: 660px) {
+                        padding: 0 12px !important;
+                    }
+                    .back-btn {
+                        @media (max-width: 660px) {
+                            margin-top: 30px !important;
+                        }
+                        cursor: pointer;
+                        width: fit-content;
+                        box-shadow: rgba(0,
+                        0,
+                        0,
+                        0.25) 0px 14px 28px,
+                        rgba(0,
+                        0,
+                        0,
+                        0.22) 0px 10px 10px;
+                        svg {
+                            width: 30px;
+                            height: 24px;
+                            margin-bottom: 2px;
+                        }
+                    }
+                    img {
+                        border-radius: 10px;
+                    }
+                    ul {
+                        padding-left: 0;
+                    }
+                    li {
+                        list-style: none;
+                        font-size: $Detail-Page;
+                        span {
+                            font-weight: 100;
+                        }
+                    }
+                    .detail-data {
+                        @media (max-width: 660px) {
+                            padding: 15px 15px !important;
+                        }
+                    }
+                    .border-country {
+                        cursor: pointer;
+                    }
+                }
+            }
