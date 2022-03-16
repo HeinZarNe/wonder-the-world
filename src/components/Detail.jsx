@@ -181,7 +181,9 @@ const Detail = () => {
                       onClick={(_) =>
                         navigate(
                           `/${CountryList.indexOf(
-                            CountryList.find((c) => c.fifa === b || c.cca3 == b)
+                            CountryList.find(
+                              (c) => c.fifa === b || c.cca3 === b
+                            )
                           )}`
                         )
                       }
