@@ -79,6 +79,9 @@
                             }
                         }
                         .cards {
+                            .no-search-country {
+                                color: $light-Mode-Text;
+                            }
                             .no-card {
                                 color: $light-Mode-Text;
                                 background-color: $light-Mode-Bg;
@@ -165,6 +168,9 @@
                             }
                         }
                         .cards {
+                            .no-search-country {
+                                color: $dark-Mode-Text;
+                            }
                             .no-card {
                                 color: $dark-Mode-Text;
                                 background-color: $dark-Mode-Bg;
