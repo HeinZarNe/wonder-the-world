@@ -6,9 +6,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import Detail from "./components/Detail";
 import Home from "./components/Home";
-var data = axios.get(`https://restcountries.com/v3.1/all`).then((res) => {
-  return res;
-});
 
 ReactDOM.render(
   <React.StrictMode>

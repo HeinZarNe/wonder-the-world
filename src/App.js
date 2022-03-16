@@ -13,11 +13,14 @@ function App() {
   const [response, setResponse] = useState([]);
   const [theme, setTheme] = useState("day");
   const [source, setSource] = useState([]);
-  useEffect(async (_) => {
-    await axios.get(`https://restcountries.com/v3.1/all`).then((res) => {
-      setResponse(res.data);
-      setSource(res.data);
-    });
+  useEffect((_) => {
+    async function fetchData() {
+      await axios.get(`https://restcountries.com/v3.1/all`).then((res) => {
+        setResponse(res.data);
+        setSource(res.data);
+      });
+      fetchData();
+    }
   }, []);
 
   const reducer = (state = [], action) => {
