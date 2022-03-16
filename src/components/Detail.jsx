@@ -70,7 +70,7 @@ const Placeholder = () => {
 };
 
 const Detail = () => {
-  const CountryList = useSelector((state) => state[1]);
+  const CountryList = useSelector((state) => state);
   const param = useParams();
 
   const navigate = useNavigate();
