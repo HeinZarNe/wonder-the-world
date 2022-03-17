@@ -246,6 +246,7 @@
                         }
                         ul {
                             border: 0px;
+                            z-index: 3;
                             top: 5px;
                             width: 100% !important;
                             font-size: $Home-Items;
