@@ -73,6 +73,10 @@
   background-color: #e6e6e6;
 }
 
+.light .cards .no-search-country {
+  color: #111517;
+}
+
 .light .cards .no-card {
   color: #111517;
   background-color: #f2f2f2;
@@ -180,6 +184,10 @@
   background-color: #212c35;
 }
 
+.dark .cards .no-search-country {
+  color: white;
+}
+
 .dark .cards .no-card {
   color: white;
   background-color: #202c37;
@@ -261,6 +269,7 @@
 
 .App .input .dropdown ul {
   border: 0px;
+  z-index: 3;
   top: 5px;
   width: 100% !important;
   font-size: 14px;
