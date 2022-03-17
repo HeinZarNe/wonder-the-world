@@ -171,7 +171,7 @@ const Detail = () => {
             </div>
             <div className="fw-bold borderl mb-2">
               <span>Border Countries:</span>
-              <div className="">
+              <div className="d-flex flex-wrap">
                 {CountryList[param.index].borders &&
                   CountryList[param.index].borders.map((b, i) => (
                     <span
