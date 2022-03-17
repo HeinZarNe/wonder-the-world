@@ -35,7 +35,6 @@ export const Placeholder = () => {
 const Cards = () => {
   const [source, setSoure] = useOutletContext();
   const list = useSelector((state) => state);
-  console.log(source);
 
   return (
     <div className="px-5 cards d-flex justify-content-between mt-3 flex-wrap align-items-center">
